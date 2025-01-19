@@ -1,0 +1,206 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    font-family: var(--font-family);
+    padding: 9px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: var(--white);
+    border: 1px solid transparent;
+    user-select: none;
+
+    + .wrapper {
+        margin-left: 8px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.icon + .title,
+.title + .icon {
+    margin-left: var(--default-button-text-margin-left);
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
+}
+
+// Button type
+.rounded {
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.primary {
+    background-color: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.12);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+
+    &:hover {
+        border-color: currentColor;
+        background-color: rgba(254, 44, 85, 0.06);
+    }
+}
+
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Button size
+.small {
+    min-width: 88px;
+    padding: 4px 16px;
+}
+
+.large {
+    padding: 14px 16px;
+    min-width: 140px;
+}
+
+.custom-login {
+}
+
+.upload-btn {
+    min-width: 110px;
+    padding: 0px 16px;
+    height: 36px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+    display: flex;
+    color: #fff !important;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background: rgba(22, 24, 35, 0.5);
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.6);
+    }
+}
+
+// Flex toggle
+.flex-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .title {
+        margin-left: var(--default-button-text-margin-left);
+    }
+
+    .toggle {
+        .tgl {
+            display: none;
+
+            &,
+            &:after,
+            &:before,
+            & *,
+            & *:after,
+            & *:before,
+            & + .tgl-btn {
+                box-sizing: border-box;
+                &::selection {
+                    background: none;
+                }
+            }
+
+            + .tgl-btn {
+                outline: 0;
+                display: block;
+                width: 4rem;
+                height: 1.8rem;
+                position: relative;
+                cursor: pointer;
+                user-select: none;
+                &:after,
+                &:before {
+                    position: relative;
+                    display: block;
+                    content: '';
+                    width: 50%;
+                    height: 100%;
+                }
+
+                &:after {
+                    left: 0;
+                }
+
+                &:before {
+                    display: none;
+                }
+            }
+
+            &:checked + .tgl-btn:after {
+                left: 50%;
+            }
+        }
+
+        .tgl-ios {
+            + .tgl-btn {
+                background: #fbfbfb;
+                border-radius: 2em;
+                padding: 2px;
+                transition: all 0.4s ease;
+                border: 1px solid #e8eae9;
+                &:after {
+                    border-radius: 2em;
+                    background: #fbfbfb;
+                    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+                    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+                }
+
+                &:hover:after {
+                    will-change: padding;
+                }
+
+                &:active {
+                    box-shadow: inset 0 0 0 2em #e8eae9;
+                    &:after {
+                        padding-right: 0.8em;
+                    }
+                }
+            }
+
+            &:checked + .tgl-btn {
+                background: #86d993;
+                &:active {
+                    box-shadow: none;
+                    &:after {
+                        margin-left: -0.8em;
+                    }
+                }
+            }
+        }
+    }
+}
